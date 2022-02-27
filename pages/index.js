@@ -30,7 +30,7 @@ export default function Home() {
           This takes you to the OSG Networking Area Documentation
         </LinkGroup>
         <LinkGroup title="perfSONAR Toolkit Documentation"
-          image="/link-pics/perfSONAR_toolkit_documentation_image.png"
+          image="/link-pics/perfsonar_toolkit_documentation_image.png"
           badges={['Documentation']}>
           This takes you to the perfSONAR Toolkit documentation
         </LinkGroup>
@@ -48,7 +48,7 @@ export default function Home() {
 
       <Section title="OSG Network Pipelines" id="osgnetworkpipeline">
         <LinkGroup title="perfSONAR Ingest Rate"
-          image="/link-pics/perfSONAR_ingest_rate_image.png"
+          image="/link-pics/perfSONAR_Ingest_Rate_image.png"
           badges={['Measurements']}
           link="https://atlas-kibana.mwt2.org:5601/s/networking/app/kibana#/visualize/edit/58bf3e80-18d1-11e8-8f2f-ab6704660c79?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-7d,to:now))&_a=(filters:!(),linked:!f,query:(language:lucene,query:(match_all:())),uiState:(),vis:(aggs:!(),params:(expression:'.es(index%3D!'ps_owd!',%20q%3D!'*!').label(!'OWD!'),%0A.es(index%3D!'ps_throughput!',%20q%3D!'*!').label(!'throughput!').yaxis(2),%0A.es(index%3D!'ps_meta!',%20q%3D!'*!').label(!'metadata!').yaxis(2),%0A.es(index%3D!'ps_status!',%20q%3D!'*!').label(!'status!').yaxis(2),%0A.es(index%3D!'ps_trace!',%20q%3D!'*!').label(!'traceroute!'),%0A.es(index%3D!'ps_packetloss!',%20q%3D!'*!').label(!'packet%20loss!'),%0A.es(index%3D!'ps_retransmits!',%20q%3D!'*!').label(!'retransmits!').yaxis(2)',interval:auto,type:timelion),title:'PerfSONAR%20ingest',type:timelion))">
           This is the Kibana interface to the University of Chicago ATLAS Analytics platform which hosts our network metrics (as well as lots of other analytics data)
