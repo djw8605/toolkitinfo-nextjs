@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Navbar from '../components/navbar'
 import Section from '../components/section'
 import LinkGroup from '../components/linkgroup'
+import Footer from '../components/footer'
 
 export default function Home() {
 
@@ -132,7 +133,7 @@ export default function Home() {
           This takes you to SAND project webpage
         </LinkGroup>
       </Section>
-
+      <Footer />
     </>
   )
 }

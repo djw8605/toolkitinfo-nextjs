@@ -9,8 +9,8 @@ export default function LinkGroup({ image, title, children, badges, link}) {
       <div className='col'>
         <div className="card">
           <div className="row g-0">
-            <div className="col-md-4">
-              <Image src={image} className="img-fluid rounded-start" alt="" width="600px" height="400px" />
+            <div className="col-md-4" style={{position: "relative" }}>
+              <Image src={image} className="img-fluid rounded-start" alt="" layout={'fill'} objectFit={'contain'} />
             </div>
             <div className="col-md-8">
               <div className="card-body">

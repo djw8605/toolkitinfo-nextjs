@@ -29,3 +29,10 @@ a {
   margin-bottom: 0.5em;
 
 }
+
+.footer {
+  background-color: #112D4E;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 1em;
+}
