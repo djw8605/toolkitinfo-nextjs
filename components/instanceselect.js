@@ -1,18 +1,31 @@
 import { useState } from 'react';
 import Select from 'react-select';
+import Highlighter from 'react-highlight-words';
 
 
 
 export default function InstanceSelect({ instances, onChange }) {
 
-  const formatOptionLabel = ({ host, site_name }) => (
-    <div>
-      <span>{site_name}</span><br/>
-      <span style={{ color: "#ccc" }}>
-        {host}
-      </span>
-    </div>
-  );
+  const formatOptionLabel = ({ host, site_name }, { inputValue }) => {
+    return (
+      <div>
+        <span>
+          <Highlighter searchWords={[inputValue]} textToHighlight={site_name} />
+        </span>
+        <br />
+        <span style={{ color: "#ccc" }}>
+          <Highlighter searchWords={[inputValue]} textToHighlight={host} />
+        </span>
+      </div>
+    )
+  };
+
+  if (instances) {
+    for (let i = 0; i < instances.length; i++) {
+      instances[i].label = instances[i].site_name;
+      instances[i].value = instances[i].host;
+    }
+  }
 
   const filterOptions = (option, inputValue) => {
     //console.log(option.data);
@@ -25,17 +38,18 @@ export default function InstanceSelect({ instances, onChange }) {
   };
   return (
     <>
-      {instances ? (
-        <Select onChange={onChange}
-          options={instances.hosts}
-          formatOptionLabel={formatOptionLabel}
-          isSearchable
-          isClearable
-          filterOption={filterOptions}
-        />
-      ) : (
-        <div>Loading...</div>
-      )}
+
+      <Select onChange={onChange}
+        options={instances ? instances.hosts : []}
+        formatOptionLabel={formatOptionLabel}
+        isSearchable
+        isClearable
+        isLoading={!instances}
+        filterOption={filterOptions}
+        getOptionLabel={option => option.site_name}
+        getOptionValue={option => option.host}
+      />
+
 
     </>
   )
