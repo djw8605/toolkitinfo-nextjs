@@ -4,8 +4,32 @@ import Navbar from '../components/navbar'
 import Section from '../components/section'
 import LinkGroup from '../components/linkgroup'
 import Footer from '../components/footer'
+import { useEffect } from 'react'
+import dynamic from 'next/dynamic'
 
 export default function Home() {
+  const Map = dynamic(
+    () => import('../components/map'), // replace '@components/map' with your component's location
+    { ssr: false } // This line is important. It's what prevents server-side render
+  )
+
+  useEffect(() => {
+    var scrollSpy = null;
+    if (typeof document !== undefined) {
+      import("bootstrap/dist/js/bootstrap").then((bootstrap) => {
+
+        scrollSpy = new bootstrap.ScrollSpy(document.body, {
+          target: '#scrollspynav'
+        })
+      });
+    }
+
+    return () => {
+      if (scrollSpy) {
+        scrollSpy.dispose();
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -17,31 +41,43 @@ export default function Home() {
       </Head>
 
       <div className='container'>
-        <h1 className="display-3" id="home">perfSONAR Toolkit Information Page</h1>
-        <p className="lead">
-          The perfSONAR Toolkit Information Page serves to be a web-based source where a user can navigate between all the various resources that are available to them. A user can navigate to find sites about official documentation, resources in regards to the OSG Network's Pipelines and other services, as well as more analytical resources such as Kibana Dashboards.
-        </p>
+        <div className="row">
+          <div className="col-md-6">
+            <h1 className="display-3" id="home">perfSONAR Toolkit Information</h1>
+            <p className="lead">
+              The perfSONAR Toolkit Information Page serves to be a web-based source where a user can navigate between all the various resources that are available to them. A user can navigate to find sites about official documentation, resources in regards to the OSG Network's Pipelines and other services, as well as more analytical resources such as Kibana Dashboards.
+            </p>
+          </div>
+          <div className="col-md-6">
+            <Map />
+          </div>
+        </div>
+
       </div>
 
 
       <Section title="Documentation" id="documentation">
         <LinkGroup title="OSG Networking Area Documentation"
           image="/link-pics/OSG_networking_area_documentation_image.png"
+          link="https://opensciencegrid.org/networking/"
           badges={['Documentation']}>
           This takes you to the OSG Networking Area Documentation
         </LinkGroup>
         <LinkGroup title="perfSONAR Toolkit Documentation"
           image="/link-pics/perfsonar_toolkit_documentation_image.png"
+          link="https://docs.perfsonar.net/"
           badges={['Documentation']}>
           This takes you to the perfSONAR Toolkit documentation
         </LinkGroup>
         <LinkGroup title="ESnet Fasterdata Home (Network/system Tuning)"
           image="/link-pics/ESnet_fasterdata_home_network_tuning_image.png"
+          link="http://fasterdata.es.net/"
           badges={['Documentation', 'Troubleshooting']}>
           This takes you to the ESnet Fasterdata homepage
         </LinkGroup>
         <LinkGroup title="ESnet Network Troubleshooting Guide"
           image="/link-pics/ESnet_network_troubleshooting_guide_image.png"
+          link="https://fasterdata.es.net/performance-testing/troubleshooting/network-troubleshooting-quick-reference-guide/"
           badges={['Documentation', 'Troubleshooting']}>
           This takes you to the ESnet troubleshooting page
         </LinkGroup>

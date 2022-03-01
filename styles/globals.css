@@ -36,3 +36,17 @@ a {
   padding: 1rem;
   margin-top: 1em;
 }
+
+.map {
+  height: 400px;
+  width: 100%;
+  color: #000;
+}
+
+.map_site_name {
+  font-weight: bold;
+}
+
+.map_host {
+  color: #ccc;
+}
