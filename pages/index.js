@@ -6,6 +6,7 @@ import LinkGroup from '../components/linkgroup'
 import Footer from '../components/footer'
 import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 export default function Home() {
   const Map = dynamic(
@@ -47,6 +48,9 @@ export default function Home() {
             <p className="lead">
               The perfSONAR Toolkit Information Page serves to be a web-based source where a user can navigate between all the various resources that are available to them. A user can navigate to find sites about official documentation, resources in regards to the OSG Network's Pipelines and other services, as well as more analytical resources such as Kibana Dashboards.
             </p>
+            <Link href="/toolkitlinks">
+              <a className='btn btn-success'>Instance Dashboards <i className="bi bi-arrow-right"></i></a>
+            </Link>
           </div>
           <div className="col-md-6">
             <Map />
