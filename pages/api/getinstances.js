@@ -67,5 +67,6 @@ export default async function handler(req, res) {
   //console.log(hosts);
 
   console.log("Finished request to gracc.opensciencegrid.org");
+  res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate')
   res.status(200).json({ hosts: hosts, updatetime: Date.now() });
 }
