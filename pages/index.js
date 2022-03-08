@@ -142,6 +142,12 @@ export default function Home() {
           link="https://atlas-kibana.mwt2.org:5061/s/networking/app/kibana#/dashboards?notFound=dashboard&_g=()">
           This is the OSG/SAND/WLCG ELK network dashboards
         </LinkGroup>
+        <LinkGroup title="PS Dash"
+          image="/link-pics/ps-dash.png"
+          badges={['Measurements']}
+          link="https://ps-dash.uc.ssl-hep.org/sites">
+          PS Dash shows an overview of metrics for perfSONAR instances
+        </LinkGroup>
         <LinkGroup title="WLCG Grafana Network Dashboards"
           image="/link-pics/wlcg_grafana_network_dashboards_image.png"
           badges={['Measurements']}
